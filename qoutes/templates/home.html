@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    {% extends 'base.html' %}
+    {% block content %}
+
+    {% if ticker %}
+        {{ ticker }}
+    {% endif %}
+
+    
+    {% if api %}
+        {% if api == "Error..." %}
+            There was problem with your ticker symbol..
+            Please try again...
+        {% else %}
+
+            <h>{{ api.companyName }}</h><br/><br/>
+            Price: ${{ api.latestPrice }}<br/>
+            Previous Close: {{ api.previousClose }}<br/>
+            Market Cap: {{ api.marketCap }}<br/>
+            YTD Change: {{ api.ytdChange }}<br/>
+            52Wk High: {{ api.week52High }}<br/>
+            52Wk Low: {{ api.week52Low }}<br/>
+                   
+            
+
+        {% endif %} 
+
+    {% endif %}            
+
+ 
+    {% endblock %}
+
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+</body>
+</html>
