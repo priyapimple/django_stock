@@ -10,7 +10,8 @@ def home(request):
     import json
 
     if request.method == 'POST':
-        api_request = requests.get("https://corona-virus-world-and-india-data.p.rapidapi.com/api=39ad9a32a8mshe36c6582084ad3bp17b941jsn79ffc0762723")
+        ticker = request.POST['ticker']
+        api_request = requests.get("https://cloud.iexapis.com/stable/stock/" + ticker + "/quote?token=pk_fb3b30b97bb947a68b736592145f7c47")
 
         
         try:
